@@ -14,7 +14,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 
 RUN set -ex; \
     WORKDIR=$PWD; \
-    apk --no-cache --update add ca-certificates curl bash; \
+    apk --no-cache add ca-certificates curl bash; \
     mkdir -p "$JAVA_HOME"; \
     curl -q -sSLO "http://cdn.azul.com/zulu/bin/${ZULU_ARCH}.tar.gz"; \
     echo "$ZULU_MD5  ${ZULU_ARCH}.tar.gz" | md5sum -c; \
