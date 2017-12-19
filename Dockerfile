@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:alpine-3.6
+FROM frolvlad/alpine-glibc:alpine-3.7
 
 MAINTAINER dockerfiles@nearpod.com
 
@@ -14,9 +14,10 @@ ENV PATH=$PATH:$JAVA_HOME/bin
 
 RUN set -ex; \
     WORKDIR=$PWD; \
-    apk --no-cache --update add ca-certificates curl bash; \
+    apk --no-cache add ca-certificates curl bash; \
     mkdir -p "$JAVA_HOME"; \
     curl -q -sSLO "http://cdn.azul.com/zulu/bin/${ZULU_ARCH}.tar.gz"; \
     echo "$ZULU_MD5  ${ZULU_ARCH}.tar.gz" | md5sum -c; \
     tar -xzf "${ZULU_ARCH}.tar.gz" --strip-components=1 -C "$JAVA_HOME"; \
-    rm -rf "${ZULU_ARCH}.tar.gz" "$JAVA_HOME/demo" "$JAVA_HOME/man" "$JAVA_HOME/sample" "$JAVA_HOME/src.zip";
+    rm -rf "${ZULU_ARCH}.tar.gz" "$JAVA_HOME/demo" "$JAVA_HOME/man" "$JAVA_HOME/sample" "$JAVA_HOME/src.zip"; \
+    java -version
