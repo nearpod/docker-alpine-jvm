@@ -14,3 +14,4 @@ RUN set -ex; \
     update-ca-certificates; \
     rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*; \
     java -version
+
