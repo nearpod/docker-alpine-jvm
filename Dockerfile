@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:jdk8u212-b03-slim
+FROM adoptopenjdk/openjdk11:jdk-11.0.6_10-ubuntu-slim
 
 MAINTAINER dockerfiles@nearpod.com
 
